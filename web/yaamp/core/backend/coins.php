@@ -127,9 +127,10 @@ function BackendCoinsUpdate()
 
 //		if($coin->symbol != 'BTC')
 //		{
-//			if($coin->symbol == 'PPC')
-//				$template = $remote->getblocktemplate('');
-//			else
+		//BlockMaster updated to remove EMC2 error, can be used to correct the segwit error.	
+		if($coin->symbol == 'EMC2')
+			$template = $remote->getblocktemplate('{"rules":["segwit"]}');
+			else
 			$template = $remote->getblocktemplate('{}');
 
 			if($template && isset($template['coinbasevalue']))
